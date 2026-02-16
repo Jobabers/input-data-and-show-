@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-[url('https://i.pinimg.com/originals/43/24/ce/4324ceb75428c58cab9455f83d45d27c.png')] bg-cover bg-center">
+
+    <form action="" method="post" id="form"> 
+    
+    <div id="container" class="w-[650px] h-[720px] p-8 rounded-2xl shadow-xl flex flex-col gap-5
+ bg-white  border border-white/40">
+        
+        <!-- หัวเรื่อง -->
+        <h1 class="text-3xl font-bold text-center ">
+            กรอกข้อมูล
+        </h1>
+        
+        <!-- ชื่อ -->
+        <div id="first-name" class="flex items-center gap-4">
+            <label class="font-medium w-28">
+                ชื่อ
+            </label>
+            <input 
+                type="text" name="firstname" id="first" class="w-full h-[38px] px-3 rounded-lg border focus:ring-2 focus:ring-blue-400" placeholder="กรอก ชื่อ">
+            </div>
+        
+        <!-- นามสกุล -->    
+        <div id="last-name" class="flex items-center gap-4">
+            <label for="" class="font-medium w-28">
+                    นามสกุล
+            </label>
+            <input 
+                type="text" name="lastname" id="last" class="w-full h-[38px] px-3 rounded-lg border focus:ring-2 focus:ring-blue-400" placeholder="กรอก นามสกุล">
+        </div>
+        
+        
+        <!-- วันเกิด -->
+        <div class="flex items-center gap-4" id="birdday">
+            <label for="" class="font-medium w-28">วันเกิด</label>
+            <input type="date" id="birthday" class="w-full h-[38px] px-3 rounded-lg border focus:ring-2 focus:ring-blue-400">
+                <script>
+                    const today = new Date();
+                    today.setDate(today.getDate()-1);
+
+                    const maxDate = today.toISOString().split("T")[0];
+                    document.getElementById("birthday").max = maxDate;
+                </script>
+        </div>
+
+        <!-- เพศ -->
+        <div class="flex items-center gap-4">
+            <label for="" class="font-medium w-28">เพศ</label>
+            <select name="genders" id="gender" class="w-full h-[38px] px-3 rounded-lg border focus:ring-2 focus:ring-blue-400">
+                <option value="">-- เลือกเพศ --</option>
+                <option value="ชาย">ชาย</option>
+                <option value="หญิง">หญิง</option>
+                <option value="LGBT">LGBT</option>
+
+            </select>
+        </div>
+
+        <!-- ศาสนา -->
+        <div class="flex items-center gap-4">
+            <label for="" class="font-medium w-28">ศาสนา</label>
+            <input id="sos" placeholder="กรอก ศาสนา" type="text" class="w-full px-3 pt-2 border rounded-lg focus:ring-2 focus:ring-blue-400">
+        </div>
+
+        <!-- ที่อยู่ -->        
+        <div class="flex gap-4">
+            <label class="font-medium w-28">ที่อยู่</label>
+            <textarea name="address" id="area" rows="3" class="w-full px-3 pt-2 border rounded-lg focus:ring-2 focus:ring-blue-400" placeholder="กรอก ที่อยู่"></textarea>
+        </div>
+        
+        <!-- อีเมล -->
+        <div class="flex items-center gap-4">
+            <label for="" class="w-28 font-mediu">อีเมล</label>
+            <input name="mail"  placeholder="กรอก อีเมล" type="email" class="w-full h-[38px] px-3 rounded-lg border focus:ring-2 focus:ring-blue-400" ame="" id="email">
+        </div>
+
+        <!-- เบอร์โทร -->
+        <div class="flex items-center gap-4">
+            <label for="" class="font-medium w-28">เบอร์โทร</label>
+            <input id="tel" name="tell" type="tel" pattern="[0-9]{10}" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g,'')" placeholder="กรอก เบอร์โทร" class="w-full h-[38px] px-3 rounded-lg border focus:ring-2 focus:ring-blue-400">
+        </div>
+        
+        <!-- งานอดิเรก -->
+        <div class="flex items-center gap-4">
+            <label for="" class="font-medium w-28">งานอดิเรก</label>
+            <input id="fav" name="favo" type="text" placeholder="กรอก งานอดิเรก" class="w-full h-[38px] px-3 rounded-lg border focus:ring-2 focus:ring-blue-400">
+        </div>
+        
+        <!-- ปุ่มจ้า -->
+        <div class="flex justify-center gap-[15px] mt-auto mb-6">
+            <div class="">
+                <button type="submit" class="cursor-pointer transition-all bg-blue-500 text-white px-6 py-2 rounded-lg border-blue-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">ok</button>
+            </div>
+        
+            <div class="">
+                <button type="reset" class="cursor-pointer transition-all bg-red-500 text-white px-6 py-2 rounded-lg border-red-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">cancel</button>
+            </div>
+        </div>
+  
+    </div>
+</form>
+
+<script>
+ 
+    
+ document.getElementById("form").addEventListener("submit", function(e) {
+   e.preventDefault();
+   // ดึงค่าจาก input
+   const firstname = document.getElementById("first").value;
+   const lastname = document.getElementById("last").value;
+   const birdday = document.getElementById("birthday").value;
+   const genders = document.getElementById("gender").value;
+   const soss = document.getElementById("sos").value;
+   const address = document.getElementById("area").value;
+   const mail = document.getElementById("email").value;
+   const tell = document.getElementById("tel").value;
+   const favo = document.getElementById("fav").value;
+   // เก็บใน localStorage (เก็บไว้ในเครื่อง)
+   localStorage.setItem("firstname", firstname);
+   localStorage.setItem("lastname", lastname);
+   localStorage.setItem("birdday", birdday);
+   localStorage.setItem("genders", genders);
+   localStorage.setItem("soss", soss);
+   localStorage.setItem("address", address);
+   localStorage.setItem("mail", mail);
+   localStorage.setItem("tell", tell);
+   localStorage.setItem("favo", favo);
+   // ไปหน้าแสดงผล
+   window.location.href = "show-data.html";
+ });
+</script>
+    
+</body>
+</html>

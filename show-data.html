@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show-data</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-[url('https://i.pinimg.com/originals/43/24/ce/4324ceb75428c58cab9455f83d45d27c.png')] bg-cover bg-center">
+    
+<div id="container" class="bg-white/90 backdrop-blur-md w-[650px] p-8 rounded-2xl shadow-xl flex flex-col gap-6">
+
+    <h2 class="text-3xl font-bold text-center text-blue-600">
+        ข้อมูลที่กรอก
+    </h2>
+
+    <div class="grid grid-cols-2 gap-4 text-gray-700">
+
+        <p><span class="font-semibold">ชื่อ:</span> <span id="showFirst"></span></p>
+        <p><span class="font-semibold">นามสกุล:</span> <span id="showLast"></span></p>
+
+        <p><span class="font-semibold">วันเกิด:</span> <span id="showBirth"></span></p>
+        <p><span class="font-semibold">เพศ:</span> <span id="showGender"></span></p>
+
+        <p><span class="font-semibold">ศาสนา:</span> <span id="showReligion"></span></p>
+        <p><span class="font-semibold">เบอร์โทร:</span> <span id="showTel"></span></p>
+
+        <p class="col-span-2">
+            <span class="font-semibold">อีเมล:</span> 
+            <span id="showEmail"></span>
+        </p>
+
+        <p class="col-span-2">
+            <span class="font-semibold">ที่อยู่:</span> 
+            <span id="showAddres"></span>
+        </p>
+
+        <p class="col-span-2">
+            <span class="font-semibold">งานอดิเรก:</span> 
+            <span id="showFav"></span>
+        </p>
+
+    </div>
+
+</div>
+
+<div class="fixed bottom-5 right-5 ">
+                <button onclick="history.back()" class=" cursor-pointer transition-all bg-red-500 text-white px-6 py-2 rounded-lg border-red-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">back</button>
+</div>
+
+
+<script>
+    const first = localStorage.getItem("firstname");
+    const last = localStorage.getItem("lastname");
+    const birthday = localStorage.getItem("birdday");
+    const gender = localStorage.getItem("genders");
+    const religion = localStorage.getItem("soss");
+    const addres = localStorage.getItem("address");
+    const email = localStorage.getItem("mail");
+    const tel = localStorage.getItem("tell");
+    const fav = localStorage.getItem("favo");
+
+    document.getElementById("showFirst").textContent = first || "-";
+    document.getElementById("showLast").textContent = last || "-";
+    document.getElementById("showBirth").textContent = birthday || "-";
+    document.getElementById("showGender").textContent = gender || "-";
+    document.getElementById("showReligion").textContent = religion || "-";
+    document.getElementById("showAddres").textContent = addres || "-";
+    document.getElementById("showEmail").textContent = email || "-";
+    document.getElementById("showTel").textContent = tel || "-";
+    document.getElementById("showFav").textContent = fav || "-";
+</script>
+
+    
+</body>
+</html>
